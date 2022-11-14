@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">
+        <h4 *ngIf="flag">
+            {{newObj.fullname}}
+        </h4>
+        <input (input)="onedit($event)" type="text" *ngIf="!flag" [value]="newObj.fullname">     
+    </div>
+    <div class="card-body">
+        <p>
+           Checked In Date : {{(newObj.checkInDate | date)? (newObj.checkInDate | date) : 'Not Checked In'}}
+        </p>
+        <p>
+            Children : {{(newObj.children)? (newObj.children).length : '0'}}
+        </p>
+        <button class="btn btn-outline-primary" *ngIf="flag" (click)="onClick()">Edit</button>
+        <button class="btn btn-outline-primary" *ngIf="!flag" (click)="onClick()">Done</button>
+         <ng-content>
+            
+         </ng-content>
+    </div>
+
+</div>
